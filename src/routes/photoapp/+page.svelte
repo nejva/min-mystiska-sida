@@ -24,20 +24,20 @@
         text-align: center;
         font-size: 50px;
         margin: 20px;
-        color: rgb(223, 195, 195);
+        color: rgb(92, 128, 128);
     }
     p{
         text-align: center;
         font-size: 40px;
         margin: 20px;
-        color: rgb(226, 212, 212);
+        color: rgb(178,216,216);
     }
 
     .photos{
         display:flex;
         max-width: 90vw;
         flex-wrap: wrap;
-        background-color: rgb(235, 223, 223);
+        background-color: rgb(226, 235, 237);
         border-radius: 20px;
     }
     .photos{
@@ -57,7 +57,7 @@
         margin:10px;
         border-radius: 20px;
         border: 2px solid white;
-        box-shadow: 4px 8px 8px rgba(255, 0, 0, 0.2);
+        box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);
         height: 100%;
     }
     .image-wrapper:hover { 
