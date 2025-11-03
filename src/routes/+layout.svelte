@@ -5,7 +5,7 @@
 	let { children } = $props();
 </script>
 
-<nav> <a href="/photoapp">Photo App</a> </nav>
+<nav> <a href="/photoapp">Photo App... or Cat App?</a> </nav>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
