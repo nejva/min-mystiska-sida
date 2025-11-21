@@ -24,20 +24,20 @@
         text-align: center;
         font-size: 50px;
         margin: 20px;
-        color: rgb(92, 128, 128);
+        color: rgb(110, 64, 64);
     }
     p{
         text-align: center;
         font-size: 40px;
         margin: 20px;
-        color: rgb(178,216,216);
+        color: rgb(172, 143, 143);
     }
 
     .photos{
         display:flex;
         max-width: 90vw;
         flex-wrap: wrap;
-        background-color: rgb(226, 235, 237);
+        background-color: rgb(238, 225, 225);
         border-radius: 20px;
     }
     .photos{
