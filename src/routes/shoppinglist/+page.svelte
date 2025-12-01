@@ -1,11 +1,12 @@
 <script>
     import { fade } from 'svelte/transition'
 
-    let varor = $state([{name:"Mjölk",purchased: false},{name:"Bröd",purchased: false},{name:"Smör",purchased: true}]);
+    let varor = $state([{name:"Mjölk",purchased: false,priority: 1}]);
     let current = $state("")
+    let priority = $state([])
 
     function handleSubmit(){
-        let new_vara = {name: current, purchased: false}
+        let new_vara = {name: current, purchased: false, priority: 1}
         if (new_vara.name <= 0){
             return
         }
@@ -16,8 +17,10 @@
     }
     function handleTransfer(i){
         varor[i].purchased = ! varor[i].purchased
-       
     }
+    $effect(()=>{
+        varor.sort((a,b) => a.priority - b.priority)
+    })
 
 
 </script>
@@ -30,8 +33,9 @@
             <ol>
                 {#each varor as vara,i}
                 {#if !vara.purchased}
-                    <li>
+                    <li transition:fade>
                         { vara.name }
+                        <input type="number" min="1" max="10" bind:value={vara.priority}>
                         <button onclick={()=>handleTransfer(i)}>Köpt?</button>
                         <button onclick={()=>handleRemove(i)}>Ta bort</button>
                     </li>
@@ -45,9 +49,9 @@
             <ul>
                 {#each varor as vara,i}
                 {#if vara.purchased}
-                    <li>
+                    <li transition:fade>
                         { vara.name }
-                        <button onclick={()=>handleTransfer(i)}>Köpa igen?</button>
+                        <button onclick={()=>handleTransfer(i)}>Köp igen?</button>
                         <button onclick={()=>handleRemove(i)}>Ta bort</button>
                     </li>
                     {/if}
@@ -74,7 +78,6 @@
 
         display: grid;
         grid-template-rows: 1fr 9fr 1fr;
-        
     }
     .categories_container{
         display: grid;
@@ -128,9 +131,11 @@
         list-style-type: circle;
         list-style-position:inside
     }
+
     li{
-        border-bottom: 1px;
-        border-color: white
+        border-bottom-width: 2px;
+        border-color: white;
+        border-bottom-style: solid ;
     }
 
     input{
@@ -139,7 +144,7 @@
     }
 
     button{
-        margin: 5px;
+        margin: 10px;
         border-radius: 20px;
         border-color:rgb(163, 179, 194)
     }

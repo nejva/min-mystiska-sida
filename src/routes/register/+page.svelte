@@ -50,11 +50,10 @@
                 {#each colors as c}
                     <option value={c.value}>{c.namn}</option>
                 {/each}
+            
             </select>
-
             <input type="submit" value="Registrera">
             <p> Har du redan ett konto? <a href="{base}/login">Logga in!</a></p>
-
         </form>
 
     </div>
