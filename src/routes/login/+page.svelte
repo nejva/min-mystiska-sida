@@ -32,8 +32,7 @@
     <div class="container">
         <h1> Inloggning </h1>
         <form on:submit|preventDefault={handleSubmit}> 
-            <div style="width: 100px; height: 100px; border-radius: 50%; overflow:hidden; background-color:{color};"></div>
-
+            
             <label for="name">Namn:</label>
             <input type="text" id="name" bind:value={name}>
 
